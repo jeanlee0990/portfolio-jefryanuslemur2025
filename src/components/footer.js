@@ -7,12 +7,15 @@ export const Footer = () => {
         <footer style={styles.footer}>
             <Container>
                 <Row className="align-items-center">
-                    <Col sm={6} style={styles.logoContainer}>
+                    {/* Logo - Desktop: di kiri | Mobile: di tengah */}
+                    <Col sm={6} xs={12} className="d-flex justify-content-sm-start justify-content-center">
                         <a href="/">
                             <img src={logojefry} alt="logo" style={styles.logoCircle} />
                         </a>
                     </Col>
-                    <Col sm={6} className="text-center text-sm-end">
+
+                    {/* Social Media & Kontak - Desktop: di kanan | Mobile: di tengah */}
+                    <Col sm={6} xs={12} className="text-sm-end text-center">
                         <div style={styles.socialIcon}>
                             <a href="https://www.instagram.com/code_in_aja/?igsh=b2w5NWg0aXhzNzk4#">
                                 <img src={navIcon3} alt="Instagram" style={styles.icon} />
@@ -36,19 +39,16 @@ const styles = {
         color: "white",
         textAlign: "center",
     },
-    logoContainer: {
-        textAlign: "left",
-    },
     logoCircle: {
         width: "100px",
         height: "100px",
         borderRadius: "50%",
         objectFit: "cover",
-        marginLeft: "-20px",
-        cursor: "pointer", // Menambahkan cursor pointer agar terlihat bisa diklik
+        cursor: "pointer",
     },
     socialIcon: {
         display: "inline-block",
+        marginTop: "10px",
     },
     icon: {
         width: "30px",
@@ -58,6 +58,14 @@ const styles = {
     text: {
         marginTop: "10px",
         fontSize: "14px",
+    },
+
+    // **Media Query untuk Mobile**
+    "@media (max-width: 576px)": {
+        logoCircle: {
+            display: "block",
+            margin: "0 auto 10px auto", // Logo berada di tengah dengan jarak ke bawah
+        },
     },
 };
 
